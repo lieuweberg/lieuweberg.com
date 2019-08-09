@@ -1,0 +1,101 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="The BlockHermit Market. Find shops, products and other items to buy here.">
+    <meta name="theme-color" content="#3663e0">
+
+    <meta name="google-site-verification" content="DJAQJxr8yvXOwK5DV8HcX8gaXQCfw4MkWkRWyykpe2Y">
+
+    <title>BH Market</title>
+
+    <!-- Links -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/bh/market.css">
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+
+    <!-- Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/images/icons/pfp.ico" />
+
+</head>
+
+<body onload="loadMarket()">
+
+    <header></header>
+
+    <div class="container cards">
+
+        <h2 class="text-center" style="margin: 4em 0 0.5em 0;">BlockHermit Market</h2>
+        <p class="text-center">Want your own shop/offer here? Go to the <a href="https://discord.gg/0tT37YAMDqwySd9I">BH Discord server</a> and use <code>!market add</code> once verified.</p>
+
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border text-primary" role="status" id="spinner">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+        <div class="row">
+            
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+    $(() => {
+        $("header").load("nav.html");
+    });
+
+
+    function shuffle(array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
+
+        while (0 !== currentIndex) {
+
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+    };
+
+    // function highlight() {
+    //     if (window.location.hash != "") {
+    //         console.log(true)
+    //         let hash = $("#" + window.location.hash.slice(1));
+    //         console.log(hash)
+    //         if (!hash.length) alert("That shop/offer's ID doesn't exist.");
+    //         else {
+    //             console.log(true)
+    //             hash.css("background-color", "white");
+    //             hash.animate({backgroundColor:"#343A40"}, 'slow');
+    //         }
+    //     }
+    // }
+
+    function loadMarket() {
+        fetch("https://tullibee.glitch.me")
+            .then(res => res.json())
+            .then(json => {
+                json = shuffle(json);
+
+                json.forEach(i => {
+                    if (i.ID == "lastID") return;
+                    $(".row").append(
+                        `<div class="col-6 col-md-4 col-lg-3" style="margin: 0.5em 0; padding: 0 0.5em;" id="${i.ID}"> <div class="card bg-dark" style="height: 100%;"> <div class="card-body"> <h5 class="card-title" style="text-align: center;"><a href="#${i.ID}">${i.data.name}<span class="small"> ${i.ID}</span></a></h5><br><p style="font-size: 0.9em;">${i.data.description}</p><p style="font-size: 0.8em;">Price: ${i.data.price} <br>Region: ${i.data.region}<br>Coordinates (x, z): ${i.data.coordinates}<br>Seller: ${i.data.sellername} </p></div></div></div>`
+                    )
+                })
+
+                document.getElementById('spinner').style.display = 'none';
+            })
+    };
+</script>
+
+</html>
