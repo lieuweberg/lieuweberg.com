@@ -43,3 +43,13 @@ code {
     border-radius: 5px;
     padding: 2px 4px;
 }
+
+.blink {
+    animation: blinker 1s linear 2;
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }

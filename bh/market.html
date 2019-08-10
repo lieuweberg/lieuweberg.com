@@ -66,19 +66,12 @@
         return array;
     };
 
-    // function highlight() {
-    //     if (window.location.hash != "") {
-    //         console.log(true)
-    //         let hash = $("#" + window.location.hash.slice(1));
-    //         console.log(hash)
-    //         if (!hash.length) alert("That shop/offer's ID doesn't exist.");
-    //         else {
-    //             console.log(true)
-    //             hash.css("background-color", "white");
-    //             hash.animate({backgroundColor:"#343A40"}, 'slow');
-    //         }
-    //     }
-    // }
+    function highlight() {
+        if (window.location.hash) {
+            let hash = document.getElementById(window.location.hash.slice(1));
+            hash.className = 'blink';
+        }
+    }
 
     function loadMarket() {
         fetch("https://tullibee.glitch.me")
@@ -94,6 +87,8 @@
                 })
 
                 document.getElementById('spinner').style.display = 'none';
+
+                highlight();
             })
     };
 </script>
