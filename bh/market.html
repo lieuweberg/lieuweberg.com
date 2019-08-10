@@ -12,7 +12,7 @@
 
     <!-- Links -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/bh/market.css">
+    <link rel="stylesheet" href="C:\Users\Gebruiker\Desktop\temp-website\css\bh\market.css">
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
 
@@ -69,7 +69,7 @@
     function highlight() {
         if (window.location.hash) {
             let hash = document.getElementById(window.location.hash.slice(1));
-            hash.className = 'blink';
+            hash.className += ' blink';
         }
     }
 
@@ -82,7 +82,7 @@
                 json.forEach(i => {
                     if (i.ID == "lastID") return;
                     $(".row").append(
-                        `<div class="col-6 col-md-4 col-lg-3" style="margin: 0.5em 0; padding: 0 0.5em;" id="${i.ID}"> <div class="card bg-dark" style="height: 100%;"> <div class="card-body"> <h5 class="card-title" style="text-align: center;"><a href="#${i.ID}">${i.data.name}<span class="small"> ${i.ID}</span></a></h5><br><p style="font-size: 0.9em;">${i.data.description}</p><p style="font-size: 0.8em;">Price: ${i.data.price} <br>Region: ${i.data.region}<br>Coordinates (x, z): ${i.data.coordinates}<br>Seller: ${i.data.sellername} </p></div></div></div>`
+                        `<div class="col-6 col-md-4 col-lg-3" style="margin: 0.5em 0; padding: 0 0.5em;" id="${i.ID}"> <div class="card bg-dark" style="height: 320px;"> <div class="card-body"> <h5 class="card-title" style="text-align: center;"><a href="#${i.ID}">${i.data.name}<span class="small"> ${i.ID}</span></a></h5><br><p style="font-size: 0.9em;">${i.data.description}</p><p style="font-size: 0.8em;">Price: ${i.data.price} <br>Region: ${i.data.region}<br>Coordinates (x, z): ${i.data.coordinates}<br>Seller: ${i.data.sellername} </p></div></div></div>`
                     )
                 })
 
