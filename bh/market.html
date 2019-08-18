@@ -69,7 +69,7 @@
     function highlight() {
         if (window.location.hash) {
             let hash = document.getElementById(window.location.hash.slice(1));
-            $('html, body').animate({scrollTop: jQuery(window.location.hash).position().top - 40}, 'slow');
+            $('html, body').animate({scrollTop: hash.getBoundingClientRect().top - 40}, 'slow');
             hash.className += ' blink';
         }
     }
