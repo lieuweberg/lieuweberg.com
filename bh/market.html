@@ -70,7 +70,7 @@
         if (window.location.hash) {
             let hash = document.getElementById(window.location.hash.slice(1));
             let hashHeight = hash.getBoundingClientRect().top;
-            if ((hashHeight > 159)) $('html, body').animate({scrollTop: hashHeight - 40}, 'slow');
+            if ((hashHeight > 250)) $('html, body').animate({scrollTop: hashHeight - 40}, 'slow');
             hash.className += ' blink';
         }
     }
