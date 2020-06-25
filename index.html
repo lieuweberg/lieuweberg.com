@@ -9,7 +9,7 @@
 
     <meta name="google-site-verification" content="DJAQJxr8yvXOwK5DV8HcX8gaXQCfw4MkWkRWyykpe2Y">
 
-    <title>home | lieuweberg.com</title>
+    <title>lieuweberg.com</title>
     
     <!-- Links -->
     <link rel="stylesheet" href="/css/index.css">
@@ -21,33 +21,29 @@
 </head>
 <body>
 
-    <div style="position: absolute; text-align: center; transform: translate(-50%,-50%); left: 50%; top: 5%;">
-        <h3 style="font-family: 'Open Sans', Arial, Helvetica, sans-serif; color: grey;">Website is temporarily in maintenance mode.</h3>
-    </div>
-
     <div id="main-container">
 
         <img id="pfp" src="/images/icons/pfp.png" alt="profile picture">
         <h2>lieuwe_berg</h2>
 
         <div id="projects-container">
-            <a href="/membercount">Member Count</a>
-            <a href="https://npmjs.org/package/kim-api">kim-api</a>
-            <a href="#" class="in-development">shorter</a>
-        </div>
-
-        <div id="projects-container">
-            <a href="#" class="in-development">discordbotgen</a>
+            <a href="https://membercount.net">Member Count</a>
+            <a href="#" class="disabled">more soon™</a>
         </div>
 
         <div id="footer">
-            <a href="https://discord.gg/dWMgWWw" target="_blank" class="first">Discord</a>
+            <a href="https://patreon.com/member_count" target="_blank" class="first">Patreon</a>
             <a href="https://github.com/lieuwe-berg" target="_blank">Github</a>
-            <a href="https://patreon.com/member_count" target="_blank" class="last">Patreon</a>
-            <p>© Copyright lieuwe_berg 2019</p>
+            <a href="https://discord.gg/dWMgWWw" target="_blank" class="last">Discord</a>
+            <p>© Copyright lieuwe_berg <span id="year">0000</span></p>
         </div>
 
     </div>
 
 </body>
+
+<script>
+    document.getElementById("year").innerHTML = (new Date()).getUTCFullYear();
+</script>
+
 </html>

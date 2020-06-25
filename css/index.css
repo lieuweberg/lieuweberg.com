@@ -61,11 +61,11 @@ h2 {
     background-color: #4b74e6;
 }
 
-.in-development {
+.disabled {
     background-color: #606060 !important;
 }
 
-.in-development:hover {
+.disabled:hover {
     background-color: #676677 !important;
 }
 
