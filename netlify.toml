@@ -1,3 +1,4 @@
 [[redirects]]
   from = "/rich-destiny/login/*"
   to = "https://localhost:35893/callback/:splat"
+  query = {code = ":code", state = ":state"}
