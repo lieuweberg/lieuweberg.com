@@ -2,3 +2,7 @@
   from = "/rich-destiny/login/*"
   to = "http://localhost:35893/callback?code=:code&state=:state"
   query = {code = ":code", state = ":state"}
+
+[[redirects]]
+  from = "/membercount"
+  to = "https://membercount.net"
