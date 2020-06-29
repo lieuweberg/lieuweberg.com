@@ -1,0 +1,82 @@
+html, body {
+    margin: 0px;
+    background: linear-gradient(#ffe39d, #ffedbf);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cantarell', sans-serif;
+}
+p {
+    font-family: 'Fira Sans', Arial, sans-serif;
+}
+a {
+    text-decoration: none;
+}
+img {
+    margin: 1px;
+}
+.btn {
+    margin-top: 10px;
+}
+
+#loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#content-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+    
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+#title {
+    margin-bottom: 10px;
+}
+#title img {
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+}
+#title h1 {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+#example-presences img {
+    width: 190px;
+    border-radius: 5px;
+}
+
+#footer {
+    margin-top: 80px;
+}
+#footer p {
+    margin: 0;
+}
+#footer a {
+    transition: letter-spacing .5s ease-in-out;
+}
+#footer a:not(.footer-first) {
+    padding-left: 5px;
+    border-left: .5px dashed #384047;
+}
+#footer a:not(.footer-last) {
+    padding-right: 5px;
+}
+#footer a:hover {
+    letter-spacing: 1px;
+}

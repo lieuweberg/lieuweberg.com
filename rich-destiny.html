@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rich-destiny</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cantarell&family=Fira+Sans&display=swap">
+    <link rel="stylesheet" href="/css/rich-destiny.css">
+    <link rel="icon" type="image/x-icon" href="/images/icons/rich-destiny.ico">
+</head>
+<body>
+    <div class="text-center" id="loader">
+        <div class="spinner-border" style="width: 3rem; height: 3rem;"></div>
+        <p class="sr-only">Loading...</p>
+    </div>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <div id="content-wrapper"> 
+        <div class="d-none" id="title">
+            <img src="/images/icons/rich-destiny.png">
+            <h1>rich-destiny</h1>
+        </div>
+        
+        <div class="d-none container" id="not-installed">
+            <p>rich-destiny is a discord rich presence tool for destiny 2<br/></p>
+
+            <div class="container" id="example-presences"></div>
+            
+            <small class="d-none" id="mobile-notice">Note: This site is made mostly for Desktop. Please view on there for
+                the best experience (this page may overflow on mobile) and <a href="https://imgur.com/a/WZ1IqX5">example images</a>.</small>
+
+            <p><br/>This tool (software) runs as a Windows service and is thus a background process that starts whenever you start your computer.
+            By not having a GUI directly, but instead communicating with this website, its download size, memory and CPU usage are severely less
+            (~25kB, 10MB and 0.0-0.1%, respectively) compared to that of other software with a similar functionality. Even though it communicates with this site,
+            no data ever leaves your computer. This site is static.</p>
+
+            <a href="#" class="btn btn-success" id="download"><img src="https://icongr.am/clarity/download.svg?size=20&color=ffffff">Download</a>
+            <a href="#" class="btn btn-success"><img src="https://icongr.am/clarity/book.svg?size=20&color=ffffff">Guide</a>
+        </div>
+
+        <div class="d-none" id="controls">
+            <p>Detected rich-destiny running on your computer.</p>
+        </div>
+
+        <div class="d-none" id="footer">
+            <p>Made by lieuwe_berg</p>
+            <a href="#" class="footer-first">GitHub Repo</a>
+            <a href="#">Credits</a>
+            <a href="#" class="footer-last">Discord Help</a>
+        </div>
+    </div>
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/js/rich-destiny.js"></script>
+
+</html>
