@@ -1,6 +1,7 @@
 html, body {
     margin: 0px;
-    background: linear-gradient(#ffe39d, #ffedbf);
+    background-color: #2a2c2f;
+    color: #e6e6e6;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -17,30 +18,42 @@ img {
 }
 .btn {
     margin-top: 10px;
+    background-color: #6c82cf;
+    border-color: #6c82cf;
+    color: white;
+    box-shadow: #00000044 6px 8px;
 }
-
-#loader {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+.btn:hover {
+    background-color: #7a8eda;
+    border-color: #7a8eda;
+    color: white;
+}
+.btn.disabled {
+    background-color: #596aa8;
+    border-color: #596aa8;
+}
+.container {
+    margin-top: 40px;
+}
+ol {
+    text-align: left;
+    margin: 0px 40px;
+}
+li {
+    margin-bottom: 15px;
 }
 
 #content-wrapper {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-
-    display: flex;
-    justify-content: center;
     align-content: center;
-    flex-direction: column;
     text-align: center;
-    
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
+
+    margin-top: 40px;
+}
+
+@media (min-width: 992px) {
+    #content-wrapper {
+        margin-top: 15vh;
+    }
 }
 
 #title {
@@ -61,8 +74,20 @@ img {
     border-radius: 5px;
 }
 
+#controls {
+    background-color: #36383b;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: left;
+}
+#controls h1, h3, h5, h6 {
+    display: inline;
+}
+
 #footer {
     margin-top: 80px;
+    margin-bottom: 40px;
+    text-align: center;
 }
 #footer p {
     margin: 0;

@@ -1,21 +1,29 @@
-function makeVisible(id) {
-    document.getElementById(id).classList.remove("d-none");
+function removeClass(id, className) {
+    document.getElementById(id).classList.remove(className);
 }
 
-function makeInvisible(id) {
-    document.getElementById(id).classList.add("d-none");
+function addClass(id, className) {
+    document.getElementById(id).classList.add(className);
+}
+
+function get(id) {
+    return document.getElementById(id);
 }
 
 function stopLoading(mobile) {
     if (mobile) {
-        makeInvisible("example-presences")
-        makeInvisible("download")
-        makeVisible("not-installed")
-        makeVisible("mobile-notice")
+        addClass("example-presences", "d-none");
+        addClass("controls", "d-none");
+        removeClass("mobile-notice", "d-none");
     }
-    makeInvisible("loader")
-    makeVisible("title")
-    makeVisible("footer")
+    
+    addClass("loader", "d-none");
+    removeClass("controls-content", "d-none");
+}
+
+if (window.innerWidth < 992) {
+    stopLoading(true);
+    throw new Error("Not on desktop, throwing error to stop code execution");
 }
 
 let examplePresencesContainer = document.getElementById("example-presences");
@@ -29,22 +37,38 @@ for (let i=0; i < examplePresences.length; i++) {
     examplePresencesContainer.innerHTML += toAdd;
 }
 
-if (window.innerWidth < 1200) {
-    stopLoading(true)
-    throw new Error("Not on desktop, throwing error to stop code execution")
-}
-
 const local = axios.create({
     baseURL: 'http://localhost:35893',
     timeout: 2000
 })
 
+function getStatus() {
+    local("/action?a=current")
+        .then(res => {
+            get("version").innerText = res.data.version;
+            if (res.data.status == "Not logged in") {
+                get("status").innerText = "NOT LOGGED IN";
+                return
+            } else {
+                get("status").innerText = "LOGGED IN";
+                get("name").innerText = res.data.name;
+                get("activity").innerText = res.data.status
+            }
+        })
+        .catch(err => get("controls").innerText = err)
+}
+
 local("/")
     .then(res => {
-        stopLoading()
-        makeVisible("controls")
+        stopLoading();
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+
+        getStatus();
+        setInterval(getStatus, 5000);
     })
     .catch(err => {
-        stopLoading()
-        makeVisible("not-installed")
+        stopLoading();
+        get("controls").style.filter = "blur(3px)";
     })
