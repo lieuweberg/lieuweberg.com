@@ -7,7 +7,7 @@ html, body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Cantarell', sans-serif;
 }
-p {
+p, li {
     font-family: 'Fira Sans', Arial, sans-serif;
 }
 a {
@@ -18,26 +18,26 @@ img {
 }
 .btn {
     margin-top: 10px;
-    background-color: #6c82cf;
-    border-color: #6c82cf;
+    background-color: #997726;
+    border-color: #997726;
     color: white;
     box-shadow: #00000044 6px 8px;
+    width: 11rem;
 }
 .btn:hover {
-    background-color: #7a8eda;
-    border-color: #7a8eda;
+    background-color: #be983e;
+    border-color: #be983e;
     color: white;
 }
 .btn.disabled {
-    background-color: #596aa8;
-    border-color: #596aa8;
+    background-color: #8a6a1f;
+    border-color: #8a6a1f;
 }
 .container {
     margin-top: 40px;
 }
 ol {
     text-align: left;
-    margin: 0px 40px;
 }
 li {
     margin-bottom: 15px;
@@ -53,6 +53,10 @@ li {
 @media (min-width: 992px) {
     #content-wrapper {
         margin-top: 15vh;
+    }
+
+    ol {
+        margin: 0px 40px;
     }
 }
 

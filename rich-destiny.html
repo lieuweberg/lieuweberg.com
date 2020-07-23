@@ -26,9 +26,9 @@
             <small class="d-none" id="mobile-notice">Note: This site is made mostly for Desktop. Please view on there for
                 the best experience (this page may overflow on mobile) and <a href="https://imgur.com/a/WZ1IqX5">example images</a>.</small>
 
-            <p><br/>rich-destiny has 20 unique images linked to various corresponding activities and 3 representing the classes (Titan, Hunter, and Warlock).
-                These are official images made by Bungie, only made white on black instead of the default black on white, to make them suitable for both Discord themes.
-                Data is pulled fresh from the Bungie API, making updating as instantaneous as it can be. This program is made to be plug-and-play, needing no
+            <p><br/>rich-destiny has twenty unique images linked to various corresponding activities and three representing the classes (Titan, Hunter, and Warlock).
+                These are official images made by Bungie, only edited to be white on black instead of the default black on white, to make them suitable for both Discord themes.
+                Data is pulled fresh from the Bungie API, making updating the status as instantaneous as it can be. This program is made to be plug-and-play, needing no
                 configuration apart from authorising with your Bungie.net account once.</p>
 
             <p><br/>This program runs as a service and is configured to be a background process that starts whenever you start your computer.
@@ -52,10 +52,12 @@
                     <p>Version: <span id="version">none</span></p>
                 </div>
                 <div class="col-md-3">
-                    <a href="#" class="btn" id="download" data-toggle="tooltip" data-placement="top" title="In case the refresh token has expired, or you want to log in with a different account">
-                        <img src="https://icongr.am/clarity/disconnect.svg?size=20&color=ffffff"> Reauthenticate</a><br/>
-                    <a href="#" class="btn" id="download" data-toggle="tooltip" data-placement="top" title="Disable automatic updates">
+                    <a href="http://localhost:35893/login" target="_blank" class="btn" title="In case the refresh token has expired, or you want to log in with a different account"
+                        data-toggle="tooltip" data-placement="top"><img src="https://icongr.am/clarity/link.svg?size=20&color=ffffff"> Reauthenticate&thinsp;&thinsp;&thinsp;</a><br/>
+                    <a href="#" class="btn" title="Disable automatic updates" data-toggle="tooltip" data-placement="top">
                         <img src="https://icongr.am/clarity/download.svg?size=20&color=ffffff"> <span id="update-status">Disable</span> Updates</a><br/>
+                    <a href="#" class="btn" title="Removes the service from the service manager, meaning rich-destiny won't start with your computer anymore" data-toggle="tooltip"
+                        data-placement="top"><img src="https://icongr.am/clarity/disconnect.svg?size=20&color=ffffff"> <span id="update-status">Uninstall</span> Service</a><br/>
                 </div>
             </div>
         </div>
@@ -63,24 +65,28 @@
         <div class="container">
             <h1>Installation</h1>
 
-            <p><br/>Albeit installation being incredibly easy, this small step-by-step instruction should help preventing common pitfalls or confusion.
+            <p style="font-size: 1.1rem;"><br/>Albeit installation being incredibly easy, this small step-by-step instruction should help preventing common pitfalls or confusion.
                 If you need further help, you can also ask questions on the <a href="https://discord.gg/UNU4UXp" target="_blank" rel="noopener noreferrer">Discord server</a>.</p>
             <ol>
                 <li>Download rich-destiny from <a href="#" target="_blank" rel="noopener noreferrer">GitHub releases</a> or click
                     <a href="#" target="_blank" rel="noopener noreferrer">here</a> to download the latest version directly (also from GitHub releases). Make sure to download
                     the executable (<code>.exe</code>) to its own folder, since it creates new files. I recommend creating this folder: <code>C:\Program Files\rich-destiny</code>
-                    and downloading it there. The executable creates new files when run (storage, logs), so you probably don't want it to clutter any important folders with that.</li>
+                    and downloading it there. The executable creates new files when run (storage, logs), so you probably don't want it to clutter any important folders with that.
+                </li>
+
                 <li>Once you've found a neat location for the executable, double click it. This is likely to bring up a prompt noting the executable is unsecure.
                     It isn't (you can view the source code yourself on <a href="#" target="_blank" rel="noopener noreferrer"></a> GitHub). If you see the prompt, click "More info"
                     and then "run anyway". This prompt will go away over time (as more people use it) or if I buy a code signing certificate, which is
                     <a href="https://sectigo.com/signing-certificates/code-signing" target="_blank" rel="noopener noreferrer">really expensive</a>. Another prompt will pop up
                     asking for administrator permissions. Unfortunately, this is needed for installing itself into the service manager so it can start up automatically. Click "Allow".
                 </li>
+
                 <li>Now a command prompt should appear, with a cool ascii rich-destiny logo and some informational text as to what the program is doing. There should be no
                     errors (if there are, head to the support server), and any moment your browser should open (a new tab) to log in with Bungie.net. When you finish the authorisation
                     flow, you will end up on a page saying "Success!". This is all the setup you need, you can now close the command prompt by pressing Enter or closing it
                     with the close button.
                 </li>
+
                 <li>That's it. If you refresh this page, you should now see the box above these instructions unblurred! This is the "configuration panel".<br/><br/>As long as you
                     play Destiny 2 once every 90 days, there is no need to visit this page again. If this program no longer does what it's supposed to do, please head to the
                     support server and explain your issue.</li>
