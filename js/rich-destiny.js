@@ -52,7 +52,8 @@ function getStatus() {
             } else {
                 get("status").innerText = "LOGGED IN";
                 get("name").innerText = res.data.name;
-                get("activity").innerText = res.data.status
+                get("activity").innerText = res.data.status;
+                get("debug").innerText = res.data.debug;
             }
         })
         .catch(err => get("controls").innerText = err)
