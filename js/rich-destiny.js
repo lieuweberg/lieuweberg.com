@@ -56,7 +56,7 @@ function getStatus() {
                 get("debug").innerText = res.data.debug;
             }
         })
-        .catch(err => get("controls").innerText = err)
+        .catch(err => get("controls").innerHTML = err + "<br/>Couldn't reach rich-destiny anymore. Try refreshing the page.")
 }
 
 local("/")
