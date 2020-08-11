@@ -52,20 +52,30 @@
                 <div class="spinner-border" style="width: 3rem; height: 3rem;"></div>
                 <p class="sr-only">Loading...</p>
             </div>
-            <div class="row d-none" id="controls-content">
-                <div class="col-md-9">
-                    <h1 id="status">NOT INSTALLED</h1><h1> // </h1><h3 id="name">rich-destiny</h3><br/>
-                    <h5>Current activity: </h5><h6 id="activity">none</h6><br/><br/>
-                    <p>Debug: <span id="debug">NA</span><br/>
-                    Version: <span id="version">none</span></p>
+            <div class="d-none" id="controls-content">
+                <div class="row">
+                    <div class="col-md-9">
+                        <h1 id="status">NOT INSTALLED</h1><h1> // </h1><h3 id="name">rich-destiny</h3><br/>
+                        <h5>Current activity: </h5><h6 id="activity">none</h6><br/><br/>
+                        <p>Debug: <span id="debug">NA</span><br/>
+                        Version: <span id="version">none</span></p>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="http://localhost:35893/login" target="_blank" class="btn" title="In case the refresh token has expired, or you want to log in with a different account"
+                            data-toggle="tooltip" data-placement="top"><img src="https://icongr.am/clarity/link.svg?size=20&color=ffffff"> Reauthenticate&thinsp;&thinsp;&thinsp;</a>
+                        <!-- <a href="#" class="btn" title="Disable automatic updates" data-toggle="tooltip" data-placement="top">
+                            <img src="https://icongr.am/clarity/download.svg?size=20&color=ffffff"> <span id="update-status">Disable</span> Updates</a> -->
+                        <!-- <a onclick="javascript:uninstallService()" class="btn" title="Removes the service from the service manager, meaning rich-destiny won't start with your computer anymore" data-toggle="tooltip"
+                            data-placement="top"><img src="https://icongr.am/clarity/disconnect.svg?size=20&color=ffffff"> <span id="update-status">Uninstall</span> Service</a> -->
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <a href="http://localhost:35893/login" target="_blank" class="btn" title="In case the refresh token has expired, or you want to log in with a different account"
-                        data-toggle="tooltip" data-placement="top"><img src="https://icongr.am/clarity/link.svg?size=20&color=ffffff"> Reauthenticate&thinsp;&thinsp;&thinsp;</a><br/>
-                    <a href="#" class="btn" title="Disable automatic updates" data-toggle="tooltip" data-placement="top">
-                        <img src="https://icongr.am/clarity/download.svg?size=20&color=ffffff"> <span id="update-status">Disable</span> Updates</a><br/>
-                    <a href="#" class="btn" title="Removes the service from the service manager, meaning rich-destiny won't start with your computer anymore" data-toggle="tooltip"
-                        data-placement="top"><img src="https://icongr.am/clarity/disconnect.svg?size=20&color=ffffff"> <span id="update-status">Uninstall</span> Service</a><br/>
+                <div>
+                    <br/><h4>Settings</h4>
+                    <label for="orbit-text">Orbit state text:</label>
+                    <input type="text" name="orbit-text" id="orbit-text" placeholder="/join your-id"> <img data-toggle="tooltip" src="https://icongr.am/clarity/info.svg?size=20&color=ffffff"
+                    title="Text to display in the presence state (second line) when in orbit. Leave blank for no state." data-placement="top">
+                    <br/><br/><a onclick="saveSettings()" class="btn"> <img src="https://icongr.am/clarity/floppy.svg?size=20&color=ffffff">Save Settings</a><br/>
+                    <p id="settings-save-res"></p>
                 </div>
             </div>
         </div>

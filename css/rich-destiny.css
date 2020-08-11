@@ -23,6 +23,7 @@ img {
     color: white;
     box-shadow: #00000044 6px 8px;
     width: 11rem;
+    display: block;
 }
 .btn:hover {
     background-color: #be983e;
@@ -86,6 +87,16 @@ li {
 }
 #controls h1, h3, h5, h6 {
     display: inline;
+}
+
+input[type="text"] {
+    border-radius: 5px;
+}
+input[type="text"]:focus {
+    outline: none;
+}
+input[type="text"]::placeholder {
+    color: #b3b3b3;
 }
 
 #footer {

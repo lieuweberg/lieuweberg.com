@@ -42,7 +42,7 @@ const local = axios.create({
     timeout: 2000
 })
 
-function getStatus() {
+function getStatus(firstTime) {
     local("/action?a=current")
         .then(res => {
             get("version").innerText = res.data.version;
@@ -54,6 +54,10 @@ function getStatus() {
                 get("name").innerText = res.data.name;
                 get("activity").innerText = res.data.status;
                 get("debug").innerText = res.data.debug;
+                
+                if (firstTime) {
+                    get("orbit-text").value = res.data.orbitText;
+                }
             }
         })
         .catch(err => get("controls").innerHTML = err + "<br/>Couldn't reach rich-destiny anymore. Try refreshing the page.")
@@ -63,13 +67,34 @@ local("/")
     .then(res => {
         stopLoading();
         $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
+            $('[data-toggle="tooltip"]').tooltip();
         })
 
-        getStatus();
+        getStatus(true);
         setInterval(getStatus, 5000);
     })
     .catch(err => {
         stopLoading();
-        get("controls").style.filter = "blur(3px)";
+        style = get("controls").style;
+        style.filter = "blur(3px)";
+        style.pointerEvents = "none";
     })
+
+function saveSettings() {
+    let orbitText = get("orbit-text").value;
+
+    local.post("/action?a=save", {
+        orbitText
+    }).then(res => {
+        if (res.status != 200) {
+            get("settings-save-res").innerHTML = res.data.status + "<br/>An error occured whilst trying to save the settings.";
+        } else {
+            get("settings-save-res").innerHTML = "Settings saved successfully!";
+            setTimeout(() => {
+                get("settings-save-res").innerHTML = "";
+            }, 3000)
+        }
+    }).catch(err => {
+        get("settings-save-res").innerHTML = err + "<br/>An error occured whilst trying to save the settings.";
+    })
+}
