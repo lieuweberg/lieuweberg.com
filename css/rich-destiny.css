@@ -1,11 +1,17 @@
+@font-face {
+    font-family: "NeueHaasGrotesk";
+    src: url("fonts/NHaasGroteskTXPro-65Md.ttf");
+}
+
+
 html, body {
     margin: 0px;
     background-color: #2a2c2f;
     color: #e6e6e6;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cantarell', sans-serif;
+h1, h2, h3, h4, h5 {
+    font-family: "NeueHaasGrotesk", sans-serif;
 }
 p, li {
     font-family: 'Fira Sans', Arial, sans-serif;
@@ -91,6 +97,7 @@ li {
 
 input[type="text"] {
     border-radius: 5px;
+    background-color: #e8e8e8;
 }
 input[type="text"]:focus {
     outline: none;
@@ -110,12 +117,9 @@ input[type="text"]::placeholder {
 #footer a {
     transition: letter-spacing .5s ease-in-out;
 }
-#footer a:not(.footer-first) {
-    padding-left: 5px;
-    border-left: .5px dashed #384047;
-}
 #footer a:not(.footer-last) {
     padding-right: 5px;
+    border-right: .5px dashed #384047;
 }
 #footer a:hover {
     letter-spacing: 1px;

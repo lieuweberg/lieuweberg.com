@@ -1,3 +1,4 @@
+// Utility functions
 function removeClass(id, className) {
     document.getElementById(id).classList.remove(className);
 }
@@ -21,11 +22,13 @@ function stopLoading(mobile) {
     removeClass("controls-content", "d-none");
 }
 
+// Mobile
 if (window.innerWidth < 992) {
     stopLoading(true);
     throw new Error("Not on desktop, throwing error to stop code execution");
 }
 
+// Add example images to container
 let examplePresencesContainer = document.getElementById("example-presences");
 let examplePresences = [["91Ap4PY.png", "cFLr2w2.png", "xwlkeTy.png"], ["afCuF0c.png", "ed7amUK.png", "x9A0z6E.png"], ["62rv8E8.png", "yxri2S8.png", "GiQMCWL.png"]];
 for (let i=0; i < examplePresences.length; i++) {
@@ -37,11 +40,38 @@ for (let i=0; i < examplePresences.length; i++) {
     examplePresencesContainer.innerHTML += toAdd;
 }
 
+// Get direct download link of the latest exe
+directDownload = get("direct-download");
+axios("https://api.github.com/repos/lieuweberg/rich-destiny/releases")
+    .then(res => {
+        let found;
+        for (release of res.data) {
+            if (!release.prelease && !release.draft) {
+                for (asset of release.assets) {
+                    if (asset.name == "rich-destiny.exe") {
+                        directDownload.innerHTML = `here (${release.name})`;
+                        directDownload.href = asset.browser_download_url;
+                        
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    directDownload.innerText = "<ERROR! Could not found download in latest release. Please head to the latest releases page manually.>"
+                }
+                break
+            }
+        }
+    })
+    .catch(err => directDownload.innerText = "<ERROR! Could not fetch releases. Please head to the latest releases page manually.>")
+
+// Custom instance for simple fetching of localhost
 const local = axios.create({
     baseURL: 'http://localhost:35893',
     timeout: 2000
 })
 
+// Function to get the current app status
 function getStatus(firstTime) {
     local("/action?a=current")
         .then(res => {
@@ -63,6 +93,7 @@ function getStatus(firstTime) {
         .catch(err => get("controls").innerHTML = err + "<br/>Couldn't reach rich-destiny anymore. Try refreshing the page.")
 }
 
+// Try to see if the application exists
 local("/")
     .then(res => {
         stopLoading();
@@ -80,21 +111,24 @@ local("/")
         style.pointerEvents = "none";
     })
 
+// Function to save settings from the control panel
 function saveSettings() {
     let orbitText = get("orbit-text").value;
+    let saveResponse = get("settings-save-res");
 
     local.post("/action?a=save", {
         orbitText
     }).then(res => {
         if (res.status != 200) {
-            get("settings-save-res").innerHTML = res.data.status + "<br/>An error occured whilst trying to save the settings.";
+            saveResponse.classList.remove("d-none")
+            saveResponse.innerHTML = res.data.status + "<br/>An error occured whilst trying to save the settings.";
         } else {
-            get("settings-save-res").innerHTML = "Settings saved successfully!";
+            saveResponse.innerHTML = "Settings saved successfully!";
             setTimeout(() => {
-                get("settings-save-res").innerHTML = "";
+                saveResponse.classList.add("d-none")
             }, 3000)
         }
     }).catch(err => {
-        get("settings-save-res").innerHTML = err + "<br/>An error occured whilst trying to save the settings.";
+        saveResponse.innerHTML = err + "<br/>An error occured whilst trying to save the settings.";
     })
 }

@@ -33,12 +33,12 @@
             <small class="d-none" id="mobile-notice">Note: This site is made mostly for Desktop. Please view on there for
                 the best experience (this page may overflow on mobile) and <a href="https://imgur.com/a/WZ1IqX5">example images</a>.</small>
 
-            <p><br/>rich-destiny has twenty unique images linked to various corresponding activities and three representing the classes (Titan, Hunter, and Warlock).
-                These are official images made by Bungie, only edited to be white on black instead of the default black on white, to make them suitable for both Discord themes.
-                Data is pulled fresh from the Bungie API, making updating the status as instantaneous as it can be. This program is made to be plug-and-play, needing no
-                configuration apart from authorising with your Bungie.net account once.</p>
+            <p><br/>Data is pulled fresh from the Bungie API, making updating the status as instantaneous as it can be. This program is made to be plug-and-play, needing no
+                configuration apart from authorising with your Bungie.net account once. rich-destiny has 20+ unique images linked to various corresponding activities and
+                three representing the classes (Titan, Hunter, and Warlock). These are official images made by Bungie, only edited to be white on black instead of the
+                default black on white, to make them suitable for both Discord themes.</p>
 
-            <p><br/>This program runs as a service and is configured to be a background process that starts whenever you start your computer.
+            <p><br/>This program runs when you start your computer and automatically updates itself with the latest non-prerelease version from GitHub releases.
                 By not having a GUI directly, but instead communicating with this website, its download size, memory and CPU usage are severely less
                 (~22MB, ~7MB and ~0.0%, respectively) compared to that of other software with similar functionality. Even though it communicates with this site,
                 no data ever leaves your computer. This site is static and is communicated with by having the program run a lightweight web server locally.</p>
@@ -56,8 +56,8 @@
                 <div class="row">
                     <div class="col-md-9">
                         <h1 id="status">NOT INSTALLED</h1><h1> // </h1><h3 id="name">rich-destiny</h3><br/>
-                        <h5>Current activity: </h5><h6 id="activity">none</h6><br/><br/>
-                        <p>Debug: <span id="debug">NA</span><br/>
+                        <h5>Current activity: </h5><p style="display: inline;"><span id="activity">none</span><br/><br/>
+                        Debug: <span id="debug">NA</span><br/>
                         Version: <span id="version">none</span></p>
                     </div>
                     <div class="col-md-3">
@@ -75,7 +75,7 @@
                     <input type="text" name="orbit-text" id="orbit-text" placeholder="/join your-id"> <img data-toggle="tooltip" src="https://icongr.am/clarity/info.svg?size=20&color=ffffff"
                     title="Text to display in the presence state (second line) when in orbit. Leave blank for no state." data-placement="top">
                     <br/><br/><a onclick="saveSettings()" class="btn"> <img src="https://icongr.am/clarity/floppy.svg?size=20&color=ffffff">Save Settings</a><br/>
-                    <p id="settings-save-res"></p>
+                    <p class="d-none" id="settings-save-res"></p>
                 </div>
             </div>
         </div>
@@ -87,8 +87,8 @@
                 If you need further help, you can also ask questions on the <a href="https://discord.gg/UNU4UXp" target="_blank" rel="noopener noreferrer">Discord server</a>.</p>
             <ol>
                 <li>Download rich-destiny from <a href="https://github.com/lieuweberg/rich-destiny/releases" target="_blank" rel="noopener noreferrer">GitHub releases</a> or click
-                    <a href="#" target="_blank" rel="noopener noreferrer" id="exe">here</a> to download the latest version directly (also from GitHub releases). Make sure to download
-                    the executable (<code>.exe</code>) to its own folder, since it creates new files. I recommend creating this folder: <code>C:\Program Files\rich-destiny</code>
+                    <a href="#" target="_blank" rel="noopener noreferrer" id="direct-download">&lt;loading...&gt;</a> to download the latest version directly (also from GitHub releases). Make 
+                    sure to download the executable (<code>.exe</code>) to its own folder, since it creates new files. I recommend creating this folder: <code>C:\Program Files\rich-destiny</code>
                     and downloading it there. The executable creates new files when run (storage, logs), so you probably don't want it to clutter any important folders with that.
                 </li>
 
@@ -113,9 +113,8 @@
 
         <div id="footer">
             <p>Made by lieuwe_berg</p>
-            <a href="https://github.com/lieuweberg/rich-destiny" class="footer-first">GitHub Repo</a>
-            <a href="#">Credits</a>
-            <a href="https://discord.gg/UNU4UXp" class="footer-last">Discord Help</a>
+            <a href="https://github.com/lieuweberg/rich-destiny" target="_blank">GitHub Repo</a>
+            <a href="https://discord.gg/UNU4UXp" target="_blank" class="footer-last">Discord Help</a>
         </div>
     </div>
 </body>
