@@ -119,8 +119,8 @@ function saveSettings() {
     local.post("/action?a=save", {
         orbitText
     }).then(res => {
+        saveResponse.classList.remove("d-none")
         if (res.status != 200) {
-            saveResponse.classList.remove("d-none")
             saveResponse.innerHTML = res.data.status + "<br/>An error occured whilst trying to save the settings.";
         } else {
             saveResponse.innerHTML = "Settings saved successfully!";
@@ -129,6 +129,7 @@ function saveSettings() {
             }, 3000)
         }
     }).catch(err => {
+        saveResponse.classList.remove("d-none")
         saveResponse.innerHTML = err + "<br/>An error occured whilst trying to save the settings.";
     })
 }
