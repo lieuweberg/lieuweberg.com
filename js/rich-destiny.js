@@ -30,7 +30,7 @@ if (window.innerWidth < 992) {
 
 // Add example images to container
 let examplePresencesContainer = document.getElementById("example-presences");
-let examplePresences = [["91Ap4PY.png", "cFLr2w2.png", "xwlkeTy.png"], ["afCuF0c.png", "ed7amUK.png", "x9A0z6E.png"], ["62rv8E8.png", "yxri2S8.png", "GiQMCWL.png"]];
+let examplePresences = [["91Ap4PY.png", "cFLr2w2.png", "Jyc99T7.png"], ["i8EyEKU.png", "ed7amUK.png", "x9A0z6E.png"], ["62rv8E8.png", "yxri2S8.png", "GiQMCWL.png"]];
 for (let i=0; i < examplePresences.length; i++) {
     let toAdd = "<div class=\"row justify-content-md-center\">";
     for (let i2=0; i2 < examplePresences[i].length; i2++){
