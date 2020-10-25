@@ -6,3 +6,8 @@
 [[redirects]]
   from = "/membercount"
   to = "https://membercount.net"
+
+[[redirects]]
+  from = "/gms/bungie/redirect"
+  to = "http://localhost:1234/bungie/redirect?code=:code&state=:state"
+  query = {code = ":code", state = ":state"}
