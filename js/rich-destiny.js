@@ -87,6 +87,7 @@ function getStatus(firstTime) {
                 
                 if (firstTime) {
                     get("orbit-text").value = res.data.orbitText;
+                    get("auto-update").checked = res.data.autoUpdate;
                 }
             }
         })
@@ -111,25 +112,67 @@ local("/")
         style.pointerEvents = "none";
     })
 
+let statusMessage = get("settings-save-res");
+
 // Function to save settings from the control panel
 function saveSettings() {
-    let orbitText = get("orbit-text").value;
-    let saveResponse = get("settings-save-res");
-
     local.post("/action?a=save", {
-        orbitText
+        orbitText: get("orbit-text").value,
+        autoUpdate: get("auto-update").checked
     }).then(res => {
-        saveResponse.classList.remove("d-none")
+        statusMessage.classList.remove("d-none")
         if (res.status != 200) {
-            saveResponse.innerHTML = res.data.status + "<br/>An error occured whilst trying to save the settings.";
+            statusMessage.innerHTML = `An error occured whilst trying to save the settings.<br/>${res.statusText}<br/><code>${res.data}</code>`;
         } else {
-            saveResponse.innerHTML = "Settings saved successfully!";
+            statusMessage.innerHTML = "Settings saved successfully!";
             setTimeout(() => {
-                saveResponse.classList.add("d-none")
+                statusMessage.classList.add("d-none")
             }, 3000)
         }
     }).catch(err => {
-        saveResponse.classList.remove("d-none")
-        saveResponse.innerHTML = err + "<br/>An error occured whilst trying to save the settings.";
+        statusMessage.classList.remove("d-none")
+        statusMessage.innerHTML = `An error occured whilst trying to save the settings.<br/>${err}<br/><code>${err.response.data}</code>`;
     })
 }
+
+function update() {
+    statusMessage.classList.remove("d-none");
+    statusMessage.innerHTML = "Updating...";
+    local("/action?a=update", {
+        timeout: 30000
+    })
+    .then(res => {
+        if (res.status != 200) {
+            statusMessage.innerHTML = `An error occured whilst trying to update.<br/>${res.statusText}<br/><code>${res.data}</code>`;
+        } else {
+            statusMessage.innerHTML = res.data;
+            setTimeout(() => {
+                statusMessage.classList.add("d-none");
+            }, 10000)
+        }
+    }).catch(err => {
+        statusMessage.classList.remove("d-none");
+        statusMessage.innerHTML = `An error occured whilst trying to update.<br/>${err}<br/><code>${err.response.data}</code>`;
+    })
+}
+
+// function restart() {
+//     statusMessage.classList.remove("d-none")
+//     statusMessage.innerHTML = "Restarting..."
+//     local("/action?a=restart", {
+//         timeout: 5000
+//     })
+//     .then(res => {
+//         if (res.status != 200) {
+//             statusMessage.innerHTML = res.data.status + "<br/>An error occured whilst trying to restart.";
+//         } else {
+//             statusMessage.innerHTML = res.data;
+//             setTimeout(() => {
+//                 statusMessage.classList.add("d-none")
+//             }, 10000)
+//         }
+//     }).catch(err => {
+//         statusMessage.classList.remove("d-none")
+//         statusMessage.innerHTML = err + "<br/>An error occured whilst trying to restart.";
+//     })
+// }

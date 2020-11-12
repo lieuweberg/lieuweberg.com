@@ -62,19 +62,24 @@
                         Version: <span id="version">none</span></p>
                     </div>
                     <div class="col-md-3">
-                        <a href="http://localhost:35893/login" target="_blank" class="btn" title="In case the refresh token has expired, or you want to log in with a different account"
-                            data-toggle="tooltip" data-placement="top"><img src="https://icongr.am/clarity/link.svg?size=20&color=ffffff"> Reauthenticate&thinsp;&thinsp;&thinsp;</a>
-                        <!-- <a href="#" class="btn" title="Disable automatic updates" data-toggle="tooltip" data-placement="top">
-                            <img src="https://icongr.am/clarity/download.svg?size=20&color=ffffff"> <span id="update-status">Disable</span> Updates</a> -->
-                        <!-- <a onclick="javascript:uninstallService()" class="btn" title="Removes the service from the service manager, meaning rich-destiny won't start with your computer anymore" data-toggle="tooltip"
-                            data-placement="top"><img src="https://icongr.am/clarity/disconnect.svg?size=20&color=ffffff"> <span id="update-status">Uninstall</span> Service</a> -->
+                        <a href="http://localhost:35893/login" target="_blank" class="btn" title="In case the refresh token has expired, or you want to log in with a different account."
+                            data-toggle="tooltip" data-placement="top"><img src="https://icongr.am/clarity/login.svg?size=20&color=ffffff"> Reauthenticate&thinsp;&thinsp;&thinsp;</a>
+                        <a class="btn" onclick="update()" title="Force finding and installing of the latest version of the program. If the version is the same, nothing happens.
+                            If it's newer, it's installed, but the program has to be restarted for an update to apply. Needs version >=v0.1.4"
+                            data-toggle="tooltip" data-placement="top"><img src="https://icongr.am/clarity/archive.svg?size=20&color=ffffff"> Update&thinsp;&thinsp;&thinsp;</a>
+                        <!-- <a class="btn" onclick="restart()" title="Restart the program. Needs version >=v0.1.4"
+                            data-toggle="tooltip" data-placement="top"><img src="https://icongr.am/clarity/refresh.svg?size=20&color=ffffff"> Restart&thinsp;&thinsp;&thinsp;</a> -->
                     </div>
                 </div>
                 <div>
                     <br/><h4>Settings</h4>
                     <label for="orbit-text">Orbit state text:</label>
-                    <input type="text" name="orbit-text" id="orbit-text" placeholder="/join your-id"> <img data-toggle="tooltip" src="https://icongr.am/clarity/info.svg?size=20&color=ffffff"
-                    title="Text to display in the presence state (second line) when in orbit. Leave blank for no state." data-placement="top">
+                    <input type="text" name="orbit-text" id="orbit-text" placeholder="empty up here..."> <img data-toggle="tooltip" src="https://icongr.am/clarity/info.svg?size=20&color=ffffff"
+                    title="Text to display in the presence state (second line) when in orbit. Leave blank for no state." data-placement="top"><br/>
+                    <label for="auto-update">Auto update:</label>
+                    <input type="checkbox" name="auto-update" id="auto-update"> <img data-toggle="tooltip" src="https://icongr.am/clarity/info.svg?size=20&color=ffffff"
+                    title="Whether to automatically update rich-destiny to the latest release whenever it is started. Needs version >=v0.1.4" data-placement="top">
+                    
                     <br/><br/><a onclick="saveSettings()" class="btn"> <img src="https://icongr.am/clarity/floppy.svg?size=20&color=ffffff"> Save Settings</a><br/>
                     <p class="d-none" id="settings-save-res"></p>
                 </div>
