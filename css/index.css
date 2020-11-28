@@ -3,7 +3,7 @@ body {
     background: #1b1b1b;
 }
 
-#main-container {
+.main-container {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -13,10 +13,6 @@ body {
     justify-content: center;
     align-content: center;
     flex-direction: column;
-}
-
-#projects-container {
-  display: flex;
 }
 
 img#pfp {
@@ -35,13 +31,13 @@ h2 {
     letter-spacing: 2px;
 }
 
-#projects-container {
+.projects-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-#projects-container a {
+.projects-container a {
     text-decoration: none;
     color: white;
     font-family: 'PT Sans Narrow', Arial, Helvetica, sans-serif;
@@ -57,7 +53,7 @@ h2 {
     transition: background-color .3s ease-in-out;
 }
 
-#projects-container a:hover {
+.projects-container a:hover {
     background-color: #4b74e6;
 }
 
@@ -69,12 +65,12 @@ h2 {
     background-color: #676677 !important;
 }
 
-#footer {
+.footer {
     display: flex;
     justify-content: center;
 }
 
-#footer p {
+.footer p {
     color: #474747;
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     font-size: 13px;
@@ -83,7 +79,7 @@ h2 {
     position: absolute;
 }
 
-#footer a {
+.footer a {
     text-decoration: none;
     color: #3386b9;
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
@@ -94,15 +90,15 @@ h2 {
     transition: letter-spacing .5s ease-in-out;
 }
 
-#footer a:not(.first) {
+.footer a:not(.first) {
     padding-left: 5px;
     border-left: .5px dashed gray;
 }
 
-#footer a:not(.last) {
+.footer a:not(.last) {
     padding-right: 5px;
 }
 
-#footer a:hover {
+.footer a:hover {
     letter-spacing: 1px;;
 }

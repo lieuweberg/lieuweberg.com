@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Epic Games Weekly - Discord bot</title>
+
+    <meta content="Epic Games Weekly" property="og:title">
+    <meta content="Have Epic Game's free games selection sent every week as a single, clean, ad-free embed that's both pretty and functional. 🎮" property="og:description">
+    <meta content="https://i.imgur.com/V63gISc.png" property="og:image">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#E9E9E9">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    html {
+        margin: 0 20px;
+    }
+    body {
+        margin: 60px auto;
+        max-width: 900px;
+    }
+    img {
+        border-radius: 5%;
+    }
+    td {
+        padding: 5px 20px 5px 0px;
+        border-top: 1px solid lightgrey;
+    }
+</style>
+
+<body>
+    {{markdown (include "markdown/epicgamesweekly.md")}}
+</body>
+</html>
